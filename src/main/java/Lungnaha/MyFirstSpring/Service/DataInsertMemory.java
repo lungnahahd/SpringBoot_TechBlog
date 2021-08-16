@@ -12,22 +12,34 @@ public class DataInsertMemory implements DBInterface {
 
     @Override
     public Member Save(Member member) {
-        member.setId(num); // id는 자동으로 증가하도록 설정
-        num++;
+        member.setId(++num); // id는 자동으로 증가하도록 설정
         temp.put(member.getId(),member);
         return null;
     }
 
     @Override
     public Optional<Member> findByName(String name) {
-        for(int i = 0; i <= num;i++){
-            if(temp.get(i).getName() == name) {
+        for(Long i : temp.keySet()){
+            if(temp.get(i).getName() == name){
                 Member turn = temp.get(i);
                 return Optional.ofNullable(turn);
             }
+
+
         }
         return Optional.empty();
+//
+//
+//        for(Long i = 0L; i < num+1;i++){
+//            if(temp.get(i).getName() == name) {
+//                Member turn = temp.get(i);
+//                return Optional.ofNullable(turn);
+//            }
+//        }
+//        return Optional.empty();
     }
+
+
 
     @Override
     public List<Member> findAll() {

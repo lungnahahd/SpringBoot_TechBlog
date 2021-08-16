@@ -22,11 +22,15 @@ class DataInsertMemoryTest {
         //given
         Member member = new Member();
         member.setName("Kim");
+
         //when
         temp.Save(member);
+
         //then
         Member result = temp.findByName(member.getName()).get();
+
         System.out.println(result.getName());
+        //assertThat(result).isEqualTo(member);
     }
 
     @Test
