@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class FirstConnect {
@@ -18,5 +19,11 @@ public class FirstConnect {
     public  String HelloName(@RequestParam("name") String name, Model model){ //RequestParam으로 해당 Key에 맞는 값을 String name에 넣고 html에 전달
         model.addAttribute("name", name);
         return "MyName.html";
+    }
+
+    @GetMapping("api")
+    @ResponseBody // 이를 통해 단순 Html과 연결이 아니라 Get 방식으로 받은 데이터 자체를 화면에 출력 가능 -> 이런 식으로 API 처리 가능!!(응용 생각하기)
+    public String GetAPIData(@RequestParam("friend") String name){
+        return name;
     }
 }
