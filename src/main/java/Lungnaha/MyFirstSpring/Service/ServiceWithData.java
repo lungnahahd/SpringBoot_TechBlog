@@ -24,7 +24,7 @@ public class ServiceWithData {
     public String join(Member member){
 
         try {
-            if(!checkOldMember(member)){
+            if(checkOldMember(member)){
                 temp.Save(member);
             }else{
                 // 이미 존재하는 회원일 경우, 아래처럼 예외 던져주기
@@ -38,12 +38,12 @@ public class ServiceWithData {
     }
     // 회원가입 전에 동일 회원이 있는지 검증하는 부분
     private boolean checkOldMember(Member member){
-        boolean same = true;
+        boolean notSame = true;
         Optional<Member> oldMember = temp.findByName(member.getName());
-        if(oldMember != null){
-            same = false;
+        if(oldMember.isPresent()){
+            notSame = false;
         }
-        return same;
+        return notSame;
     }
 
     // 전체 회원 조회하기

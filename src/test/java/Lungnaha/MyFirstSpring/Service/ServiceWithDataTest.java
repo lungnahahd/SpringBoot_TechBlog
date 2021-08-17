@@ -30,16 +30,24 @@ class ServiceWithDataTest {
         //given
         Member member = new Member();
         Member member2 = new Member();
+        Member member1 = new Member();
         member.setName("Monday");
         member.setCharacter("가슴운동");
-        member.setName("Monday");
+        member2.setName("Monday");
         member2.setCharacter("무분할");
+        member1.setName("Tuesday");
+        member1.setCharacter("등운동");
+
 
         //when
         String getCharacter = service.join(member);
+        String getCharacter2 = service.join(member1);
+        //String makeError = service.join(member2);
 
         //then
         System.out.println(getCharacter);
+        System.out.println(getCharacter2);
+        //System.out.println(makeError);
     }
 
     @Test

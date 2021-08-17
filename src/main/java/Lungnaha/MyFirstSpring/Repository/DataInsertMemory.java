@@ -19,6 +19,7 @@ public class DataInsertMemory implements DBInterface {
 
     @Override
     public Optional<Member> findByName(String name) {
+        Member member = null;
         for(Long i : temp.keySet()){
             if(temp.get(i).getName().equals(name)){
                 Member turn = temp.get(i);
@@ -27,7 +28,7 @@ public class DataInsertMemory implements DBInterface {
 
 
         }
-        return Optional.empty();
+        return Optional.ofNullable(member);
     }
 
 
