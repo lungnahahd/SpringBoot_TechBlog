@@ -6,6 +6,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ServiceWithDataTest {
@@ -52,5 +54,28 @@ class ServiceWithDataTest {
 
     @Test
     void 회원명단공개() {
+        //given
+        Member member = new Member();
+        Member member2 = new Member();
+        Member member1 = new Member();
+        member.setName("Monday");
+        member.setCharacter("가슴운동");
+        member2.setName("Monday");
+        member2.setCharacter("무분할");
+        member1.setName("Tuesday");
+        member1.setCharacter("등운동");
+
+        //when
+        service.join(member);
+        service.join(member1);
+        //service.join(member2);
+
+        //then
+        List resultList = service.ShowAllMember();
+        for(int i = 0 ;i < resultList.size() ;i++){
+            Member show = (Member)resultList.get(i);
+            System.out.println(show.getName());
+            System.out.println(show .getCharacter());
+        }
     }
 }
