@@ -21,10 +21,10 @@ public class ServiceWithData {
     }
 
     // 회원가입 기능
-    public Long join(Member member){
+    public String join(Member member){
 
         try {
-            if(checkOldMember(member)){
+            if(!checkOldMember(member)){
                 temp.Save(member);
             }else{
                 // 이미 존재하는 회원일 경우, 아래처럼 예외 던져주기
@@ -33,7 +33,7 @@ public class ServiceWithData {
         }catch (Exception e){ 
             throw new IllegalStateException("이미 존재하는 이름입니다.");
         }
-        return member.getId();
+        return member.getCharacter();
 
     }
     // 회원가입 전에 동일 회원이 있는지 검증하는 부분
