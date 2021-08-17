@@ -1,4 +1,4 @@
-package Lungnaha.MyFirstSpring.Service;
+package Lungnaha.MyFirstSpring.Function;
 
 import Lungnaha.MyFirstSpring.Domain.Member;
 import Lungnaha.MyFirstSpring.Interface.DBInterface;
@@ -28,21 +28,13 @@ public class DataInsertMemory implements DBInterface {
 
         }
         return Optional.empty();
-//
-//
-//        for(Long i = 0L; i < num+1;i++){
-//            if(temp.get(i).getName() == name) {
-//                Member turn = temp.get(i);
-//                return Optional.ofNullable(turn);
-//            }
-//        }
-//        return Optional.empty();
     }
 
 
 
     @Override
     public List<Member> findAll() {
+
         return new ArrayList<>(temp.values());
     }
     //Test를 위해 필요한 함수 -> 실제 서비스에서는 사용 X
