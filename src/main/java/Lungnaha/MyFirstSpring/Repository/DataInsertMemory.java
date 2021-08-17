@@ -1,4 +1,4 @@
-package Lungnaha.MyFirstSpring.Function;
+package Lungnaha.MyFirstSpring.Repository;
 
 import Lungnaha.MyFirstSpring.Domain.Member;
 import Lungnaha.MyFirstSpring.Interface.DBInterface;
@@ -20,7 +20,7 @@ public class DataInsertMemory implements DBInterface {
     @Override
     public Optional<Member> findByName(String name) {
         for(Long i : temp.keySet()){
-            if(temp.get(i).getName() == name){
+            if(temp.get(i).getName().equals(name)){
                 Member turn = temp.get(i);
                 return Optional.ofNullable(turn);
             }

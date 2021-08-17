@@ -1,4 +1,4 @@
-package Lungnaha.MyFirstSpring.Function;
+package Lungnaha.MyFirstSpring.Repository;
 
 import Lungnaha.MyFirstSpring.Domain.Member;
 import org.junit.jupiter.api.AfterEach;
