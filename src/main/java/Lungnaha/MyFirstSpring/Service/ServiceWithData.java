@@ -2,12 +2,15 @@ package Lungnaha.MyFirstSpring.Service;
 
 import Lungnaha.MyFirstSpring.Domain.Member;
 import Lungnaha.MyFirstSpring.Repository.DataInsertMemory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 // 지금까지 Interface를 활용한 저장소 기능을 이용해서 실질적으로 서비스를 구현
 // 여기서는 실무에서 요구하는 서비스를 차례대로 구현하면 된다.
+//@Service // Controller와 Autowired 되어서 부를 때, Spring이 알 수 있도록 표시해주는 역할
 public class ServiceWithData {
     
     // 저장소 기능 받아오기
@@ -16,6 +19,7 @@ public class ServiceWithData {
 
     // 생성할 때마다 생성하지 말고, 이렇게 생성자를 활용해서 저장소를 서비스가 시작할 때 넘겨받도록 구현!!!
     private DataInsertMemory temp;
+    @Autowired // Controller - Service와 마찬가지로 서로 연결 짓기 위해서 사용
     public ServiceWithData(DataInsertMemory dataInsertMemory){
         this.temp = dataInsertMemory;
     }

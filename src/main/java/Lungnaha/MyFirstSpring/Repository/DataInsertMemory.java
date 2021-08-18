@@ -2,10 +2,12 @@ package Lungnaha.MyFirstSpring.Repository;
 
 import Lungnaha.MyFirstSpring.Domain.Member;
 import Lungnaha.MyFirstSpring.Interface.DBInterface;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
 // 이전에 구현한 Interface의 기능을 구체적으로 구현
+//@Repository // Service의 Autowired와 연결되기 위해서 Spring에 명시헤주는 역할
 public class DataInsertMemory implements DBInterface {
     private static Map<Long, Member> temp = new HashMap<>(); // id와 데이터를 따로 담기 위해 사용
     private static long num = 0L; // id를 독립적으로 처리하기 위해 사용

@@ -1,0 +1,22 @@
+package Lungnaha.MyFirstSpring.Controller;
+
+import Lungnaha.MyFirstSpring.Repository.DataInsertMemory;
+import Lungnaha.MyFirstSpring.Service.ServiceWithData;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+// Java 코드를 작성해서 직접 Configuration으로 원하는 부분을 Spring Bean에 올리는 과정
+// 해당 코드로 직접 Spring Bean에 올리려면 @Service, @Repository를 모두 제거한 다음에 진행 필요
+
+@Configuration
+public class ServiceConfiguration {
+    @Bean // 직접 자바 코드로 Repository 등록하기
+    public DataInsertMemory dataInsertMemory(){
+        return  new DataInsertMemory();
+    }
+
+    @Bean // 직접 자바 코드로 Service 등록하기
+    public ServiceWithData serviceWithData(){
+        return new ServiceWithData(dataInsertMemory());
+    }
+}
