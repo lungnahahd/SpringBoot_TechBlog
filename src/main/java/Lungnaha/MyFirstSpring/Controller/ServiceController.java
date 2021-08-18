@@ -5,8 +5,11 @@ import Lungnaha.MyFirstSpring.Domain.Member;
 import Lungnaha.MyFirstSpring.Service.ServiceWithData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class ServiceController {
@@ -39,6 +42,13 @@ public class ServiceController {
         member.setCharacter(getDataForm.getStory());
         service.join(member);
         return "redirect:/"; // 동작 완료 후, 다시 홈 화면으로 돌아가도록 구현
+    }
+
+    @GetMapping("/member")
+    public String ShowList(Model model){
+        List<Member> member = service.ShowAllMember();
+        model.addAttribute("member",member);
+        return "showMembers.html";
     }
 
 }

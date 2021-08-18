@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>조회하기</title>
+</head>
+<body>
+<div class="container">
+<table>
+<thead>
+<tr>
+    <th>#</th>
+    <th>요일</th>
+    <th>특이사항</th>
+</tr>
+</thead>
+    <tbody>
+        <tr th:each="member : ${member}">
+            <td th:text="${member.id}"></td>
+            <td th:text="${member.name}"></td>
+            <td th:text="${member.character}"></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>
