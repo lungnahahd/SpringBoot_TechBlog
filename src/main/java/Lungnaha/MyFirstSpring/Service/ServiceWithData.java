@@ -1,7 +1,9 @@
 package Lungnaha.MyFirstSpring.Service;
 
 import Lungnaha.MyFirstSpring.Domain.Member;
+import Lungnaha.MyFirstSpring.Interface.DBInterface;
 import Lungnaha.MyFirstSpring.Repository.DataInsertMemory;
+import Lungnaha.MyFirstSpring.Repository.TemplateJDBC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,10 @@ public class ServiceWithData {
     // DataInsertMemory temp = new DataInsertMemory();
 
     // 생성할 때마다 생성하지 말고, 이렇게 생성자를 활용해서 저장소를 서비스가 시작할 때 넘겨받도록 구현!!!
-    private DataInsertMemory temp;
+    //private DataInsertMemory temp;
+    private TemplateJDBC temp;
     @Autowired // Controller - Service와 마찬가지로 서로 연결 짓기 위해서 사용
-    public ServiceWithData(DataInsertMemory dataInsertMemory){
+    public ServiceWithData(TemplateJDBC dataInsertMemory){
         this.temp = dataInsertMemory;
     }
 
