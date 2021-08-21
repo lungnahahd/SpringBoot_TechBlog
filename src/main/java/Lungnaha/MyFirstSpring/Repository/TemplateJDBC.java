@@ -44,18 +44,13 @@ public class TemplateJDBC implements DBInterface {
     @Override
     public Optional<Member> findByName(String name) {
         List<Member> result = jdbcTemplate.query("select * from newtest where name = ?", new DataRowMapper(), name);
-       /* if (result.isEmpty() || result == null){
-            return  null;
-        }else{
-            return result.stream().findAny();
-        }*/
         return result.stream().findAny(); // 반환이 Optinal 이므로 그것을 처리하기 위해서 사용
     }
 
     // 데이터 전체를 받아오는 부분
     @Override
     public List<Member> findAll() {
-        return jdbcTemplate.query("select * from testtable", ListRowMapper());
+        return jdbcTemplate.query("select * from newtest", ListRowMapper());
     }
 
     // Query문의 결과 값을 객체로 받을 수 있도록 도움을 주는 함수를 인터페이스를 이용해서 구현
