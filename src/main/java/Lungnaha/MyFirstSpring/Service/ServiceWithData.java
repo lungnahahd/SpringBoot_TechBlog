@@ -29,15 +29,16 @@ public class ServiceWithData {
 
     // 회원가입 기능
     public String join(Member member){
-
         try {
             if(checkOldMember(member)){
+                //if(checkOldMember(member)){
                 temp.Save(member);
             }else{
+                System.out.println("여기까지는 들어왔어요");
                 // 이미 존재하는 회원일 경우, 아래처럼 예외 던져주기
                 throw new Exception();
             }
-        }catch (Exception e){ 
+        }catch (Exception e){
             throw new IllegalStateException("이미 존재하는 이름입니다.");
         }
         return member.getCharacter();
@@ -49,6 +50,7 @@ public class ServiceWithData {
         Optional<Member> oldMember = temp.findByName(member.getName());
         if(oldMember.isPresent()){
             notSame = false;
+            //notSame = true;
         }
         return notSame;
     }
@@ -56,13 +58,6 @@ public class ServiceWithData {
     // 전체 회원 조회하기
     public List<Member> ShowAllMember(){
         List resultList = temp.findAll();
-        /*for(int i = 0 ;i < resultList.size() ;i++){
-            Member show = (Member)resultList.get(i);
-            System.out.print(show.getId());
-            System.out.print(show.getName());
-            System.out.print(show.getCharacter());
-            System.out.println();
-        }*/
         return resultList;
     }
 
