@@ -51,4 +51,9 @@ public class ServiceController {
         return "showMembers.html";
     }
 
+    @GetMapping("/main")
+    public String ShowElements(){
+        return "main.html";
+    }
+
 }
