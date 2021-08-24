@@ -1,10 +1,12 @@
 package Lungnaha.MyFirstSpring.Domain;
 
+import java.util.Date;
+
 // HTML에서 받을 데이터 Form(형식)을 정의하는 파일
 public class GetDataForm {
     private String day;
     private  String story;
-    private String date;
+    private Date date;
 
     public String getDay(){
         return day;
@@ -22,11 +24,11 @@ public class GetDataForm {
         this.story = story;
     }
 
-    public String getDate(){
+    public Date getDate(){
         return date;
     }
 
-    public void setDate(String date){
+    public void setDate(Date date){
         this.date = date;
     }
 
