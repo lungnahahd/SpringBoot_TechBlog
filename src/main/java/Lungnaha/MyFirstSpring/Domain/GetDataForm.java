@@ -4,6 +4,7 @@ package Lungnaha.MyFirstSpring.Domain;
 public class GetDataForm {
     private String day;
     private  String story;
+    private String date;
 
     public String getDay(){
         return day;
@@ -20,4 +21,13 @@ public class GetDataForm {
     public void setStory(String story) {
         this.story = story;
     }
+
+    public String getDate(){
+        return date;
+    }
+
+    public void setDate(String date){
+        this.date = date;
+    }
+
 }
