@@ -63,9 +63,8 @@ public class ServiceController {
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     public String ShowDetail(String name, Model model){
         Optional<Member> member1 = service.ShowNameMember(name);
-        List<Optional<Member>> member = new ArrayList<>();
-        member.add(member1);
-        model.addAttribute("member",member);
+        Member getMember = member1.get();
+        model.addAttribute("member",getMember);
         return "/detail";
     }
 
