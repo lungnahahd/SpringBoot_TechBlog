@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest // Test 진행 시에 Spring boot를 같이 띄워서 Test를 진행하기 위해서 필요
 @Transactional // 각 Test 실행 마다 해당 동작을 실제 DB에 반영하지 않게 하기 위해서 필요
@@ -56,6 +57,29 @@ class ServiceWithDataTest {
         System.out.println(member.getName());
         //System.out.println(getCharacter2);
         //System.out.println(makeError);
+    }
+    @Test
+    void 이름으로찾기(){
+        // given
+        Member member = new Member();
+        Member member2 = new Member();
+        Member member1 = new Member();
+        member.setName("Monday");
+        member.setCharacter("가슴운동");
+        member2.setName("Monday");
+        member2.setCharacter("무분할");
+        member1.setName("Tuesday");
+        member1.setCharacter("등운동");
+
+        //when
+        service.join(member);
+        service.join(member1);
+
+        //Then
+
+        Optional<Member> check = service.ShowNameMember("Monday");
+        Member result = check.get();
+        System.out.println(result.getCharacter());
     }
 
     @Test

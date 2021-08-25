@@ -68,7 +68,7 @@
                                 <h3 class="mb-0"></h3>
                                 <div class="subheading mb-3" id ="name" th:text="${member.name}"></div>
                                 <button type="submit">테스트</button>
-                                <a class = "subheading mb-3" th:text="${member.name}" href="detail/">ENTER</a>
+                                <a class = "subheading mb-3" th:href="@{/detail(name=${member.name})}">ENTER</a>
                             </div>
                         </form>
                         <div class="flex-shrink-0"><span class="text-primary" th:text="${member.date}"></span></div>
