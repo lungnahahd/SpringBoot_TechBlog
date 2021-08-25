@@ -3,6 +3,7 @@ package Lungnaha.MyFirstSpring.Controller;
 import Lungnaha.MyFirstSpring.Domain.GetDataForm;
 import Lungnaha.MyFirstSpring.Domain.Member;
 import Lungnaha.MyFirstSpring.Service.ServiceWithData;
+import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,9 +51,17 @@ public class ServiceController {
         model.addAttribute("member",member);
         return "showMembers.html";
     }
+    @GetMapping("/main#experience")
+    public String MakeDBTable(Model model){
+        List<Member> member = service.ShowAllMember();
+        model.addAttribute("member",member);
+        return "main.html";
+    }
 
     @GetMapping("/main")
-    public String ShowElements(){
+    public String ShowElements(Model model){
+        List<Member> member = service.ShowAllMember();
+        model.addAttribute("member",member);
         return "main.html";
     }
 

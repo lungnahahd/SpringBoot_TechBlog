@@ -62,6 +62,7 @@ public class TemplateJDBC implements DBInterface {
             member.setId(rs.getLong("id"));
             member.setName(rs.getString("name"));
             member.setCharacter(rs.getString("character"));
+            member.setDate(rs.getDate("date"));
             return member;
         }
     }
@@ -73,6 +74,7 @@ public class TemplateJDBC implements DBInterface {
             member.setId(rs.getLong("id"));
             member.setName(rs.getString("name"));
             member.setCharacter(rs.getString("character"));
+            member.setDate(rs.getDate("date"));
             return member;
         });
     }

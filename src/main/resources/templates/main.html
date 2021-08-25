@@ -62,14 +62,23 @@
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
                     <h2 class="mb-5" >정보목록</h2>
-                    <div th:each="member: ${member}" class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0" text="{member.name}"></h3>
-                            <div class="subheading mb-3">Intelitec Solutions</div>
-                            <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+<!--                    <table>-->
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+<!--                        <tbody>-->
+<!--                            <tr th:each="member : ${member}">-->
+<!--                                <td th:text="${member.name}">정보</td>-->
+<!--                                <td th:text="${member.character}">내용</td>-->
+<!--                                <td th:text="${member.date}">등록일</td>-->
+<!--                            </tr>-->
+<!--                        </tbody>-->
+                        <div class="flex-grow-1" th:each="member : ${member}">
+                            <h3 class="mb-0"></h3>
+                            <div class="subheading mb-3" th:text="${member.name}"></div>
+                            <p th:text="${member.character}"></p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary" text="{member.date}"></span></div>
+                        <div class="flex-shrink-0"><span class="text-primary" th:text="${member.date}"></span></div>
                     </div>
+<!--                    </table>-->
                 </div>
             </section>
             <hr class="m-0" />

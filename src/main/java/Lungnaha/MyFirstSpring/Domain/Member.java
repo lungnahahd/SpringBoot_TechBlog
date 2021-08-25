@@ -1,11 +1,14 @@
 package Lungnaha.MyFirstSpring.Domain;
 
+import java.util.Date;
+
 // 서버 프로그램의 Domain 즉, 데이터 형식 등을 관리하는 부분
 public class Member {
     // 데이터들이 저장되는 변수들은 pirvate로 다른 데서 접근 못하게 처리
     private Long id;
     private String name;
     private String character;
+    private Date date;
 
     // 각 변수에 알맞는 getter, setter 함수 구현 -> 어느정도 보편화되어 있고 필수적인 부분
     // 간단하게 자동생성으로 생성 가능
@@ -30,5 +33,12 @@ public class Member {
 
     public void setCharacter(String character) {
         this.character = character;
+    }
+
+    public Date getDate(){
+        return date;
+    }
+    public void setDate(Date date){
+        this.date = date;
     }
 }
