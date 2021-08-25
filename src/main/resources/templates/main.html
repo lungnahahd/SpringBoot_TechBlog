@@ -62,23 +62,17 @@
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
                     <h2 class="mb-5" >정보목록</h2>
-<!--                    <table>-->
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5" th:each="member : ${member}">
-<!--                        <tbody>-->
-<!--                            <tr th:each="member : ${member}">-->
-<!--                                <td th:text="${member.name}">정보</td>-->
-<!--                                <td th:text="${member.character}">내용</td>-->
-<!--                                <td th:text="${member.date}">등록일</td>-->
-<!--                            </tr>-->
-<!--                        </tbody>-->
-                        <div class="flex-grow-1" >
-                            <h3 class="mb-0"></h3>
-                            <div class="subheading mb-3" th:text="${member.name}"></div>
-                            <p th:text="${member.character}"></p>
-                        </div>
+                        <form action="/detail" method="post">
+                            <div class="flex-grow-1" >
+                                <h3 class="mb-0"></h3>
+                                <div class="subheading mb-3" id ="name" th:text="${member.name}"></div>
+                                <button type="submit">테스트</button>
+                                <a class = "subheading mb-3" th:text="${member.name}" href="detail/">ENTER</a>
+                            </div>
+                        </form>
                         <div class="flex-shrink-0"><span class="text-primary" th:text="${member.date}"></span></div>
                     </div>
-<!--                    </table>-->
                 </div>
             </section>
             <hr class="m-0" />

@@ -1,9 +1,9 @@
 package Lungnaha.MyFirstSpring.Controller;
 
+import Lungnaha.MyFirstSpring.Domain.DetailData;
 import Lungnaha.MyFirstSpring.Domain.GetDataForm;
 import Lungnaha.MyFirstSpring.Domain.Member;
 import Lungnaha.MyFirstSpring.Service.ServiceWithData;
-import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ServiceController {
@@ -51,12 +52,17 @@ public class ServiceController {
         model.addAttribute("member",member);
         return "showMembers.html";
     }
-//    @GetMapping("/main#experience")
-//    public String MakeDBTable(Model model){
-//        List<Member> member = service.ShowAllMember();
-//        model.addAttribute("member",member);
-//        return "main.html";
-//    }
+    @PostMapping("/detail")
+    public String PostDetail(DetailData detailData, Model model){
+        Optional<Member> member = service.ShowNameMember(detailData.getName());
+        model.addAttribute("member",member);
+        return "redirect:/detail";
+    }
+
+    @GetMapping("/detail")
+    public String ShowDetail(String name,Model model){
+        return "detail.html";
+    }
 
     @GetMapping("/main")
     public String ShowElements(Model model){

@@ -1,11 +1,8 @@
 package Lungnaha.MyFirstSpring.Service;
 
 import Lungnaha.MyFirstSpring.Domain.Member;
-import Lungnaha.MyFirstSpring.Interface.DBInterface;
-import Lungnaha.MyFirstSpring.Repository.DataInsertMemory;
 import Lungnaha.MyFirstSpring.Repository.TemplateJDBC;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -53,6 +50,10 @@ public class ServiceWithData {
             //notSame = true;
         }
         return notSame;
+    }
+    public Optional<Member> ShowNameMember(String name){
+        Optional<Member> resultList = temp.findByName(name);
+        return resultList;
     }
 
     // 전체 회원 조회하기
