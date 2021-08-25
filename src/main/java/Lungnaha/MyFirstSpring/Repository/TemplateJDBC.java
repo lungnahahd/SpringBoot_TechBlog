@@ -10,6 +10,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,16 +29,7 @@ public class TemplateJDBC implements DBInterface {
     // 데이터를 저장하는 부분
     @Override
     public Member Save(Member member) {
-        //SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
-        //jdbcInsert.withTableName("testtable").usingGeneratedKeyColumns("id"); // Table에서 자동 id 생성 시에 추가하는 코드
-        //String SQL  = "INSERT INTO `springprac`.`newtest` (`id`, `name`, `character`) VALUES ('1', '월', '등운동')";
         jdbcTemplate.update("INSERT INTO `springprac`.`newtest` (`name`, `character`) VALUES (?,?)",member.getName(),member.getCharacter());
-
-//        Map<String, Object> parameters = new HashMap<>();
-//        parameters.put("name",member.getName());
-//        parameters.put("character",member.getCharacter());
-//        Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
-//        member.setId(key.longValue());
         return member;
     }
 

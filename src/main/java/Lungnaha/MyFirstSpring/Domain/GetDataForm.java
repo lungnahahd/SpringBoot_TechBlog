@@ -1,5 +1,10 @@
 package Lungnaha.MyFirstSpring.Domain;
 
+import org.apache.tomcat.jni.Local;
+
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 // HTML에서 받을 데이터 Form(형식)을 정의하는 파일

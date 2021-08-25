@@ -1,5 +1,6 @@
 package Lungnaha.MyFirstSpring.Domain;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 // 서버 프로그램의 Domain 즉, 데이터 형식 등을 관리하는 부분
